@@ -1,4 +1,5 @@
 class PrototypesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :move_to_index, except: [:index, :show]
   def index
     @prototypes = Prototype.all.includes(:user)
@@ -29,7 +30,7 @@ class PrototypesController < ApplicationController
       @comment = Comment.new
       @comment = @comment.save
     else
-      redirect_to root_path
+      redirect_to new_user_session_path
     end
   end
 
