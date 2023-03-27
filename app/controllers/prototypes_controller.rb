@@ -27,7 +27,7 @@ class PrototypesController < ApplicationController
     @prototype = Prototype.find(params[:id])
     if user_signed_in? && current_user.id == @prototype.user.id
       @comment = Comment.new
-      @comment = Comment.save
+      @comment = @comment.save
     else
       redirect_to root_path
     end
