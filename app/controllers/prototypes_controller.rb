@@ -52,7 +52,8 @@ class PrototypesController < ApplicationController
   private
 
   def prototype_params
-    params.require(:prototype).permit(:image, :title, :concept, :catch_copy ).merge(user_id: current_user.id, prototype_id: params[:prototype_id])
+    params.require(:prototype).permit(:image, :title, :concept, :catch_copy ).merge(user_id: current_user.id)
+    #params.require(:prototype).permit(:image, :title, :concept, :catch_copy ).merge(user_id: current_user.id, prototype_id: params[:prototype_id])
   end
 
   def move_to_index
